@@ -1,9 +1,11 @@
 package main
 
+import "math"
+
 func maxSubArray(nums []int) int {
 	sub := subArr(nums)
 
-	var m int
+	m := math.MinInt64
 	for _, ns := range sub {
 		m = max(m, sum(ns))
 	}
