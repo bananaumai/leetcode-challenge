@@ -3,24 +3,13 @@ package main
 import "math"
 
 func maxSubArray(nums []int) int {
-	sub := subArr(nums)
-
 	m := math.MinInt64
-	for _, ns := range sub {
-		m = max(m, sum(ns))
-	}
-
-	return m
-}
-
-func subArr(nums []int) [][]int {
-	var sub [][]int
 	for i := 0; i < len(nums); i++ {
 		for k := i; k < len(nums); k++ {
-			sub = append(sub, nums[i:k+1])
+			m = max(m, sum(nums[i:k+1]))
 		}
 	}
-	return sub
+	return m
 }
 
 func max(a, b int) int {
