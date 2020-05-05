@@ -1,25 +1,22 @@
 package main
 
-import "math"
+import "fmt"
 
 func maxSubArray(nums []int) int {
-	dp := make([][]int, len(nums))
-	for i := 0; i < len(dp); i++ {
-		dp[i] = make([]int, len(nums))
-	}
-
-	max := math.MinInt64
-	for i := 0; i < len(nums); i++ {
-		for j := i; j < len(nums); j++ {
-			if j == i {
-				dp[i][j] = nums[j]
-			} else {
-				dp[i][j] = dp[i][j-1] + nums[j]
-			}
-			if dp[i][j] > max {
-				max = dp[i][j]
-			}
+	dp := make([]int, len(nums))
+	dp[0] = nums[0]
+	max := dp[0]
+	for i := 1; i < len(nums); i++ {
+		if dp[i-1] > 0 {
+			dp[i] = nums[i] + dp[i-1]
+		} else {
+			dp[i] = nums[i]
+		}
+		if dp[i] > max {
+			max = dp[i]
 		}
 	}
+	fmt.Printf("nums = %v\n", nums)
+	fmt.Printf("dp   = %v\n", dp)
 	return max
 }

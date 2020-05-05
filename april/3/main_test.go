@@ -11,6 +11,8 @@ func Test_maxSubArray(t *testing.T) {
 		expected int
 	} {
 		{[]int{-2,1,-3,4,-1,2,1,-5,4}, 6},
+		{[]int{1}, 1},
+		{[]int{1,2}, 3},
 	}
 
 	for _, tt := range tts {
