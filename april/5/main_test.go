@@ -19,7 +19,7 @@ func Test_maxProfit(t *testing.T) {
 		tt := tt
 
 		t.Run(fmt.Sprintf("input %v", tt.input), func(t *testing.T) {
-			//t.Parallel()
+			t.Parallel()
 
 			actual := maxProfit(tt.input)
 
