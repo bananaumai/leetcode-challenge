@@ -7,9 +7,9 @@ import (
 
 func Test_isHappy(t *testing.T) {
 	tts := []struct {
-		input int
+		input    int
 		expected bool
-	} {
+	}{
 		//{19, true},
 		{1221, true},
 	}

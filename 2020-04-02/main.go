@@ -11,17 +11,17 @@ func isHappy(n int) bool {
 
 		var es []int
 		for digits := countDigits(n); digits > 0; digits-- {
-			base := pow(10, digits - 1)
+			base := pow(10, digits-1)
 			w := n / base
 			es = append(es, w)
-			n = n - w * base
+			n = n - w*base
 		}
 
 		for i, e := range es {
 			if i == 0 {
 				n = e * e
 			} else {
-				n = n + e * e
+				n = n + e*e
 			}
 		}
 

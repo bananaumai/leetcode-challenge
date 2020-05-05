@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 var (
-	n = 3
+	n          = 3
 	badVersion = 2
 	apiCallCnt int
 )
@@ -25,7 +25,7 @@ func solve(start int, end int, answer int) int {
 		return answer
 	}
 
-	if start + 1 == end {
+	if start+1 == end {
 		if isBadVersion(start) {
 			return start
 		}

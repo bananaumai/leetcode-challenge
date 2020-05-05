@@ -5,23 +5,21 @@ import (
 	"testing"
 )
 
-func Test_firstUniqChar(t *testing.T) {
+func Test_findComplement(t *testing.T) {
 	tts := []struct {
-		input string
+		input    int
 		expected int
-	} {
-		{"leetcode", 0},
-		{"loveleetcode", 2},
-		{"aa", -1},
+	}{
+		{5, 2},
+		{1, 0},
 	}
 
 	for _, tt := range tts {
 		tt := tt
-
-		t.Run(fmt.Sprintf("input %s", tt.input), func(t *testing.T) {
+		t.Run(fmt.Sprintf("input %d", tt.input), func(t *testing.T) {
 			t.Parallel()
 
-			actual := firstUniqChar(tt.input)
+			actual := findComplement(tt.input)
 
 			if tt.expected != actual {
 				t.Errorf("expected: %d <=> actual: %d", tt.expected, actual)

@@ -2,7 +2,7 @@ package main
 
 func findComplement(num int) int {
 	d := digits(num)
-	p := pow(2, d + 1)
+	p := pow(2, d+1)
 	return num ^ (p - 1)
 }
 

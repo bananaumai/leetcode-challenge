@@ -1,6 +1,6 @@
 package main
 
-func moveZeroes(nums []int)  {
+func moveZeroes(nums []int) {
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == 0 {
 			chunk := 1
@@ -16,8 +16,8 @@ func moveZeroes(nums []int)  {
 }
 
 func swap(arr []int, pos, size int) {
-	for i := pos; i < pos + size; i++ {
-		target := i+size
+	for i := pos; i < pos+size; i++ {
+		target := i + size
 		if target >= len(arr) {
 			break
 		}

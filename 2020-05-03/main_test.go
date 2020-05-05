@@ -6,11 +6,11 @@ import (
 )
 
 func Test_canConstruct(t *testing.T) {
-	tts := []struct{
-		r string
-		m string
+	tts := []struct {
+		r        string
+		m        string
 		expected bool
-	} {
+	}{
 		{"a", "b", false},
 		{"aa", "ab", false},
 		{"aa", "aab", true},

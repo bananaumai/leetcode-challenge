@@ -5,22 +5,23 @@ import (
 	"testing"
 )
 
-func Test_maxSubArray(t *testing.T) {
+func Test_firstUniqChar(t *testing.T) {
 	tts := []struct {
-		input []int
+		input    string
 		expected int
-	} {
-		{[]int{-2,1,-3,4,-1,2,1,-5,4}, 6},
-		{[]int{1}, 1},
-		{[]int{1,2}, 3},
+	}{
+		{"leetcode", 0},
+		{"loveleetcode", 2},
+		{"aa", -1},
 	}
 
 	for _, tt := range tts {
 		tt := tt
-		t.Run(fmt.Sprintf("input: %v", tt.input), func(t *testing.T) {
+
+		t.Run(fmt.Sprintf("input %s", tt.input), func(t *testing.T) {
 			t.Parallel()
 
-			actual := maxSubArray(tt.input)
+			actual := firstUniqChar(tt.input)
 
 			if tt.expected != actual {
 				t.Errorf("expected: %d <=> actual: %d", tt.expected, actual)

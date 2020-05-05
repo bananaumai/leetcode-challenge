@@ -7,9 +7,9 @@ import (
 
 func Test_groupAnagrams(t *testing.T) {
 	tts := []struct {
-		input []string
+		input    []string
 		expected [][]string
-	} {
+	}{
 		{
 			input: []string{"eat", "tea", "tan", "ate", "nat", "bat"},
 			expected: [][]string{

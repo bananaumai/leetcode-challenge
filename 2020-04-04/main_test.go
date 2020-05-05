@@ -7,11 +7,11 @@ import (
 
 func Test_moveZeroes(t *testing.T) {
 	tts := []struct {
-		input []int
+		input    []int
 		expected []int
 	}{
-	 	//{[]int{0,1,0,3,12}, []int{1,3,12,0,0}},
-	 	{[]int{4,2,4,0,0,3,0,5,1,0}, []int{4,2,4,3,5,1,0,0,0,0}},
+		//{[]int{0,1,0,3,12}, []int{1,3,12,0,0}},
+		{[]int{4, 2, 4, 0, 0, 3, 0, 5, 1, 0}, []int{4, 2, 4, 3, 5, 1, 0, 0, 0, 0}},
 	}
 
 	for _, tt := range tts {
