@@ -6,6 +6,8 @@ type TreeNode struct {
     Right *TreeNode
 }
 
+type path []string
+
 func diameterOfBinaryTree(root *TreeNode) int {
 	paths := traverse(root)
 
@@ -17,52 +19,30 @@ func diameterOfBinaryTree(root *TreeNode) int {
 		return len(paths[0])
 	}
 
-	pairs := combination(paths)
-
-	var max int
-	for _, pair := range pairs {
-		path1 := pair[0]
-		path1Len := len(path1)
-		if path1Len > max {
-			max = path1Len
+	var longestPath path
+	for _, path := range paths {
+		if len(path) > len(longestPath) {
+			longestPath = path
 		}
+	}
 
-		path2 := pair[1]
-		path2Len := len(path2)
-		if path2Len > max {
-			max = path2Len
-		}
-
+	max := len(longestPath)
+	for _, path := range paths {
 		var commonLen int
-		for i := 0; i < len(path1); i++ {
-			if path1[i] == path2[i] {
+		for i := 0; i < len(path); i++ {
+			if path[i] == longestPath[i] {
 				commonLen++
 			} else {
 				break
 			}
 		}
-		total := path1Len + path2Len - commonLen * 2
+		total := len(path) + len(longestPath) - commonLen * 2
 		if total > max {
 			max = total
 		}
 	}
 
 	return max
-}
-
-type path []string
-
-func combination(paths []path) [][]path {
-	var pairs [][]path
-
-	for i := 0; i < len(paths); i++ {
-		for j := i + 1; j < len(paths); j++ {
-			pair := []path{paths[i], paths[j]}
-			pairs = append(pairs, pair)
-		}
-	}
-
-	return pairs
 }
 
 func traverse(node *TreeNode) []path {
