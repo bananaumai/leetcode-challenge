@@ -7,15 +7,15 @@ import (
 
 func Test_diameterOfBinaryTree(t *testing.T) {
 	tts := []struct {
-		input *TreeNode
+		input    *TreeNode
 		expected int
-	} {
+	}{
 		{
 			input: &TreeNode{
 				Val: 1,
 				Left: &TreeNode{
-					Val: 2,
-					Left: &TreeNode{Val: 4},
+					Val:   2,
+					Left:  &TreeNode{Val: 4},
 					Right: &TreeNode{Val: 5},
 				},
 				Right: &TreeNode{Val: 3},
@@ -23,16 +23,16 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 			expected: 3,
 		},
 		{
-			input: &TreeNode{},
+			input:    &TreeNode{},
 			expected: 0,
 		},
 		{
-			input: nil,
+			input:    nil,
 			expected: 0,
 		},
 		{
 			input: &TreeNode{
-				Val: 1,
+				Val:  1,
 				Left: &TreeNode{Val: 2},
 			},
 			expected: 1,
@@ -41,7 +41,7 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 			input: &TreeNode{
 				Val: 2,
 				Left: &TreeNode{
-					Val: 3,
+					Val:  3,
 					Left: &TreeNode{Val: 1},
 				},
 			},
@@ -53,8 +53,8 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 				Left: &TreeNode{
 					Val: 5,
 					Left: &TreeNode{
-						Val: 3,
-						Left: &TreeNode{Val: 1},
+						Val:   3,
+						Left:  &TreeNode{Val: 1},
 						Right: &TreeNode{Val: 2},
 					},
 				},
@@ -63,7 +63,7 @@ func Test_diameterOfBinaryTree(t *testing.T) {
 		},
 		{
 			input: &TreeNode{
-				Val: 4,
+				Val:  4,
 				Left: &TreeNode{Val: -7},
 				Right: &TreeNode{
 					Val: -3,

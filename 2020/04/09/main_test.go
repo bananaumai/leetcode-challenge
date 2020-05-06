@@ -7,10 +7,10 @@ import (
 
 func Test_backspaceCompare(t *testing.T) {
 	tts := []struct {
-		inputS string
-		inputT string
+		inputS   string
+		inputT   string
 		expected bool
-	} {
+	}{
 		{"ab#c", "ad#c", true},
 		{"ab##", "c#d#", true},
 		{"a##c", "#a#c", true},

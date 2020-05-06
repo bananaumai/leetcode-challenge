@@ -26,9 +26,9 @@ func (n *ListNode) String() string {
 
 func Test_middleNode(t *testing.T) {
 	tts := []struct {
-		input []int
+		input    []int
 		expected int
-	} {
+	}{
 		{[]int{1, 2, 3, 4, 5}, 3},
 		{[]int{1, 2, 3, 4, 5, 6}, 4},
 		{[]int{1}, 1},

@@ -1,14 +1,14 @@
 package main
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func diameterOfBinaryTree(root *TreeNode) int {
 	c, m := diameter(root)
-	return max(c - 1, m)
+	return max(c-1, m)
 }
 
 func diameter(node *TreeNode) (int, int) {
@@ -18,7 +18,7 @@ func diameter(node *TreeNode) (int, int) {
 
 	lCount, lMax := diameter(node.Left)
 	rCount, rMax := diameter(node.Right)
-	return max(lCount, rCount) + 1, max(lCount + rCount, max(lMax, rMax))
+	return max(lCount, rCount) + 1, max(lCount+rCount, max(lMax, rMax))
 }
 
 func max(a, b int) int {

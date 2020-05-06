@@ -10,12 +10,12 @@ func Constructor() MinStack {
 	return MinStack{}
 }
 
-func (s *MinStack) Push(x int)  {
+func (s *MinStack) Push(x int) {
 	s.arr = append(s.arr, x)
 }
 
-func (s *MinStack) Pop()  {
-	s.arr = append(make([]int,0), s.arr[:len(s.arr)-1]...)
+func (s *MinStack) Pop() {
+	s.arr = append(make([]int, 0), s.arr[:len(s.arr)-1]...)
 }
 
 func (s *MinStack) Top() int {
