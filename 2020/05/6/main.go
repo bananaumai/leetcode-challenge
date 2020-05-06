@@ -1,15 +1,8 @@
 package main
 
+import "sort"
+
 func majorityElement(nums []int) int {
-	threshold := len(nums) / 2
-
-	nMap := make(map[int]int)
-	for _, n := range nums {
-		nMap[n]++
-		if nMap[n] > threshold {
-			return n
-		}
-	}
-
-	panic("majority element not found")
+	sort.Ints(nums)
+	return nums[len(nums)/2]
 }
