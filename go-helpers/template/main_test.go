@@ -19,7 +19,7 @@ func Test_foo(t *testing.T) {
 		t.Run(fmt.Sprintf("input %v", tt.input), func(t *testing.T) {
 			t.Parallel()
 
-			actual := foo(t)
+			actual := foo(tt.input)
 
 			if tt.expected != actual {
 				t.Errorf("expected: %v <=> actual: %v", tt.expected, actual)
