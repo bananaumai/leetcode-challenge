@@ -5,46 +5,30 @@ func findMaxLength(nums []int) int {
 		return 0
 	}
 
-	var (
-		answer int
-		count0 int
-		count1 int
-	)
+	ys := make(map[int][]int)
+	ys[0] = []int{0}
 
-	for i, n := range nums {
+	var y int
+	for x, n := range nums {
 		if n == 0 {
-			count0++
+			y -= 1
 		} else {
-			count1++
+			y += 1
 		}
+		ys[y] = append(ys[y], x+1)
+	}
 
-		if count0 == 0 || count1 == 0 {
+	var longest int
+	for _, xs := range ys {
+		if len(xs) < 2 {
 			continue
 		}
+		distance := xs[len(xs)-1] - xs[0]
 
-		more := max(count0, count1)
-		less := min(count0, count1)
-
-		if more*2 > i+1 {
-			continue
+		if distance > longest {
+			longest = distance
 		}
-
-		answer = max(answer, less*2)
 	}
 
-	return answer
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return longest
 }
