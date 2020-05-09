@@ -1,44 +1,45 @@
 package main
 
 func findMaxLength(nums []int) int {
-	var (
-		maxSize int
-		size0   int
-		size1   int
-	)
-
-	for i := 0; i < len(nums); i++ {
-		if maxSize >= len(nums)-i {
-			break
-		}
-
-		for j := i; j < len(nums); j++ {
-			if nums[j] == 0 {
-				size0++
-			} else {
-				size1++
-			}
-
-			size := size0 + size1
-
-			if size%2 != 0 {
-				continue
-			}
-
-			threshold := (len(nums) - i) / 2
-			if size0 > threshold || size1 > threshold {
-				size0 = 0
-				size1 = 0
-				break
-			}
-
-			if size0 == size1 {
-				maxSize = max(maxSize, size)
-			}
-		}
+	if len(nums) < 2 {
+		return 0
 	}
 
-	return maxSize
+	var (
+		answer int
+		count0 int
+		count1 int
+	)
+
+	for i, n := range nums {
+		if n == 0 {
+			count0++
+		} else {
+			count1++
+		}
+
+		if count0 == 0 || count1 == 0 {
+			continue
+		}
+
+		more := max(count0, count1)
+		less := min(count0, count1)
+
+		if more*2 > i+1 {
+			continue
+		}
+
+		answer = max(answer, less*2)
+	}
+
+	return answer
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func max(a, b int) int {
